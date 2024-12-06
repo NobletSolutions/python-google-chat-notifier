@@ -1,0 +1,9 @@
+[Unit]
+Description=Google Chat Notifier
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/sysconfig/google-chat-notifier
+Environment=NOTIFIER_CHAT_URL=${NOTIFIER_CHAT_URL}
+ExecStart=/bin/notifier "Service *%I failed*" "Hostname: %H"
